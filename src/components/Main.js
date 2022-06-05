@@ -24,8 +24,7 @@ export default function Main () {
   function handle_user_data (e) {
     set_user_data(prev => ({
       ...prev,
-      // [e.target.name] : e.target.value,
-      [e.target.name] : e.target.name == ''
+      [e.target.name] : e.target.value,
     }));
   }
 
@@ -125,8 +124,8 @@ export default function Main () {
           <p> <b> Tier: </b>  <br /> {user_data.tier} </p>
           <p> <b> Amount: </b>  <br /> {user_data.amount} </p>
           <p> <b> percentage: </b>  <br /> {
-            ((user_data.tier === 'TIER_1' ? 7 :
-              user_data.tier === 'TIER_2' ? 12 : 25) * user_data.amount) / 100
+            (((user_data.tier === 'TIER_1' ? 7 :
+              user_data.tier === 'TIER_2' ? 12 : 25) * user_data.amount) / 100) + +user_data.amount
             } ({
               `${(user_data.tier === 'TIER_1' ? 7 :
               user_data.tier === 'TIER_2' ? 12 : 25)}%`
